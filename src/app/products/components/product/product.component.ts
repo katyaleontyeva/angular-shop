@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductCategory } from '../../../shared/enums';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -7,20 +7,15 @@ import { ProductCategory } from '../../../shared/enums';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  name: string;
-  description: string;
-  price: number;
-  category: ProductCategory;
-  image: string;
-  isAvailable: boolean;
+  @Input() product: Product;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onBuy() {
-    console.log('Product added to cart');
+  onBuy(product: Product) {
+    console.log(`${product.name} added to cart`);
   }
 
 }

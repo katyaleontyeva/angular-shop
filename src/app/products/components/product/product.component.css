@@ -1,3 +1,14 @@
+.thumbnail-image {
+  height: 150px;
+  overflow: hidden;
+}
+
+.thumbnail-image img {
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+}
+
 .thumbnail-footer {
   display: flex;
   justify-content: space-between;
