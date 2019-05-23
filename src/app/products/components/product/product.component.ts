@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductCategory } from '../../../shared/enums';
 
 @Component({
   selector: 'app-product',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  name: string = 'Product name';
-  description: string = 'Product description';
-  price: number = 100;
-  isAvailable: boolean = true;
+  name: string;
+  description: string;
+  price: number;
+  category: ProductCategory;
+  image: string;
+  isAvailable: boolean;
 
   constructor() { }
 
