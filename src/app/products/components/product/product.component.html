@@ -4,8 +4,8 @@
   </div>
   <div class="caption">
     <h4>{{ product.name }}</h4>
-    <p>{{ product.description }}</p>
     <p>{{ product.category }}</p>
+    <p>{{ product.description }}</p>
     <p class="thumbnail-footer">
       <span class="price">{{ product.price }}$</span>
       <a href="#" class="btn btn-primary" role="button" (click)="onBuy(product)" [attr.disabled]="product.isAvailable ? null : ''">Buy</a>
