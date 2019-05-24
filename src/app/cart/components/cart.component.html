@@ -11,5 +11,5 @@
   <p>The cart is empty</p>
 </ng-template>
 
-<a href="#" class="btn btn-default btn-sm" role="button" (click)="emptyCart()" [attr.disabled]="products.length ? null : ''">Empty cart</a>
+<button class="btn btn-default btn-sm" (click)="emptyCart()" [disabled]="!products.length">Empty cart</button>
 
