@@ -2,10 +2,12 @@ import { IProduct } from './product.interface';
 import { ProductCategory } from '../../shared/enums';
 
 export class ProductModel implements IProduct {
-  name: string;
-  description: string;
-  price: number;
-  category: ProductCategory;
-  image: string;
-  isAvailable: boolean;
+  constructor(
+    public name: string = '',
+    public description: string = '',
+    public price: number = 0,
+    public category: ProductCategory,
+    public image: string = '',
+    public isAvailable: boolean
+  ) { }
 }
