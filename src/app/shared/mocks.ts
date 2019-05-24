@@ -1,7 +1,7 @@
-import { Product } from '../products/models/product.model';
+import { ProductModel } from '../products/models/product.model';
 import { ProductCategory } from './enums';
 
-export const productsData: Product[] = [
+export const productsData: ProductModel[] = [
   {
     name: 'Монстера',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, explicabo!',

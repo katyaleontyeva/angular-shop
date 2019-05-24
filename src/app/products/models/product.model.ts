@@ -1,7 +1,7 @@
 import { IProduct } from './product.interface';
 import { ProductCategory } from '../../shared/enums';
 
-export class Product implements IProduct {
+export class ProductModel implements IProduct {
   name: string;
   description: string;
   price: number;

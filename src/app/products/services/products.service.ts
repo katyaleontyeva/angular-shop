@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product.model';
+import { ProductModel } from '../models/product.model';
 
 import { productsData } from '../../shared/mocks';
 
@@ -7,11 +7,11 @@ import { productsData } from '../../shared/mocks';
   providedIn: 'root'
 })
 export class ProductsService {
-  products: Product[] = productsData;
+  products: ProductModel[] = productsData;
 
   constructor() { }
 
-  getProducts(): Product[] {
+  getProducts(): ProductModel[] {
     return this.products;
   }
 }
