@@ -3,27 +3,36 @@ import { ProductCategory } from './enums';
 
 export const productsData: ProductModel[] = [
   {
-    name: 'Монстера',
+    id: 1,
+    name: 'Monstera deliciosa',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, explicabo!',
     price: 15,
     category: ProductCategory.Araceae,
-    image: 'http://cdn.shopify.com/s/files/1/0150/6262/articles/kara-eads-547179-unsplash_480x.jpg?v=1547149919',
+    images: [
+      'https://img.crocdn.co.uk/images/products2/pl/20/00/03/27/pl2000032789.jpg?width=440&height=440'
+    ],
     isAvailable: true,
   },
   {
-    name: 'Спатифиллум',
+    id: 2,
+    name: 'Spathiphyllum',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, in.',
     price: 25,
     category: ProductCategory.Araceae,
-    image: 'http://proklumbu.com/wp-content/uploads/2016/12/106521414_large_50.jpg',
+    images: [
+      'https://img.crocdn.co.uk/images/products2/pl/20/00/03/43/pl2000034375.jpg?width=440&height=440'
+    ],
     isAvailable: false,
   },
   {
-    name: 'Фикус каучуконосный',
+    id: 3,
+    name: 'Ficus elastica \'Robusta\'',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, eius.',
     price: 20,
     category: ProductCategory.Ficeae,
-    image: 'http://img.crocdn.co.uk/images/products2/pl/20/00/03/05/pl2000030537.jpg?width=940&height=940',
+    images: [
+      'https://img.crocdn.co.uk/images/products2/pl/20/00/02/77/pl2000027700.jpg?width=440&height=440'
+    ],
     isAvailable: true,
   },
 ];

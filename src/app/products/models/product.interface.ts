@@ -1,10 +1,11 @@
 import { ProductCategory } from '../../shared/enums';
 
 export interface IProduct {
+  id: number;
   name: string;
   description: string;
   price: number;
   category: ProductCategory;
-  image: string;
-  isAvailable: boolean;
+  images?: string[];
+  isAvailable?: boolean;
 }

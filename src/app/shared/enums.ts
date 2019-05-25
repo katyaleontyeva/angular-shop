@@ -1,4 +1,4 @@
 export enum ProductCategory {
-  Araceae = 'Ароидные',
-  Ficeae = 'Фикус',
+  Araceae = 'Araceae',
+  Ficeae = 'Ficeae',
 }
