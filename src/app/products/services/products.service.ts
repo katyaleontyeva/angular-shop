@@ -3,9 +3,7 @@ import { ProductModel } from '../models/product.model';
 
 import { productsData } from '../../shared/mocks';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductsService {
   products: ProductModel[] = productsData;
 

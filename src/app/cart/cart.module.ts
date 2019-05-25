@@ -5,11 +5,11 @@ import { CartComponent } from './components/cart.component';
 import { CartService } from './services/cart.service';
 
 @NgModule({
-  declarations: [
-    CartComponent
-  ],
   imports: [
     CommonModule
+  ],
+  declarations: [
+    CartComponent
   ],
   providers: [
     CartService
