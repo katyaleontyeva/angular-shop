@@ -1,23 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
-
-import { CartService } from '../../../cart/services/cart.service';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
   @Input() product: ProductModel;
 
-  constructor(private cartService: CartService) { }
+  @Output() buyProduct = new EventEmitter<ProductModel>();
 
-  ngOnInit() {
-  }
+  constructor() { }
 
-  onBuy(product: ProductModel) {
-    this.cartService.addToCart(product);
+  onBuy(): void {
+    this.buyProduct.emit(this.product);
   }
 
 }

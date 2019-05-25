@@ -13,3 +13,5 @@
 
 ## Task 2
 * Созданная ранее функциональность разделена на модули CartModule, ProductsModule, OrdersModule, CoreModule, SharedModule.
+* Модифицирован ProductsService. Для списка товаров используется Promise. 
+* Модицифированы компоненты ProductComponent и ProductListComponent. ProductComponent реализован как презентационный. Добавление товара в корзину осуществляет ProductListComponent через сервис CartService. 

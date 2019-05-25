@@ -8,7 +8,7 @@
     <p>{{ product.description }}</p>
     <p class="thumbnail-footer">
       <span class="price">{{ product.price }}$</span>
-      <button class="btn btn-primary" (click)="onBuy(product)" [disabled]="!product.isAvailable">Buy</button>
+      <button class="btn btn-primary" (click)="onBuy()" [disabled]="!product.isAvailable">Buy</button>
     </p>
   </div>
 </div>
