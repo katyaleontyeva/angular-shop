@@ -1,4 +1,5 @@
 export enum ProductCategory {
-  Araceae = 'Araceae',
-  Ficeae = 'Ficeae',
+  Foliage = 'Foliage',
+  Flowering = 'Flowering',
+  Succulent = 'Succulent'
 }

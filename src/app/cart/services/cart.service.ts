@@ -50,6 +50,7 @@ export class CartService {
       return sum + item.qty;
     }, 0);
 
+    // TODO Why this is called several times?
     console.log(total);
     return total;
   }

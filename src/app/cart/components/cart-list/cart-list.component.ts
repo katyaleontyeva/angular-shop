@@ -25,7 +25,7 @@ export class CartListComponent implements OnInit {
   }
 
   checkout(): void {
-
+    this.cartItems.then((resolve) => console.log(JSON.stringify(resolve)))
   }
 
 }
