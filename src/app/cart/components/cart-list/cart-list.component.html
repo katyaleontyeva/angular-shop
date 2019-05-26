@@ -1,7 +1,11 @@
 <h3>Your cart</h3>
 <div *ngIf="(cartItems | async)?.length; else elseBlock">
   <div class="list-group">
-    <app-cart-item *ngFor="let item of cartItems | async" [cartItem]="item" (deleteItem)="onDeleteItem($event)"></app-cart-item>
+    <app-cart-item
+      *ngFor="let item of cartItems | async"
+      [cartItem]="item"
+      (deleteItem)="onDeleteItem($event)"
+      appHighlight></app-cart-item>
   </div>
 
   <div class="cart-totals">
