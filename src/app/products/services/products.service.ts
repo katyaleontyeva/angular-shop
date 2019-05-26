@@ -3,7 +3,8 @@ import { ProductModel } from '../models/product.model';
 
 import { productsData } from '../../shared/mocks';
 
-const productsList = Promise.resolve(productsData.map(item => new ProductModel(item)));
+const productsList = productsData.map(item => new ProductModel(item));
+const productsListPromise = Promise.resolve(productsList);
 
 @Injectable()
 export class ProductsService {
@@ -11,7 +12,7 @@ export class ProductsService {
   constructor() { }
 
   getProducts(): Promise<ProductModel[]> {
-    return productsList;
+    return productsListPromise;
   }
 
   getProduct(id: number | string): Promise<ProductModel> {

@@ -1,0 +1,16 @@
+:host.list-group-item {
+  display: flex;
+  align-items: center;
+}
+
+.item-name {
+  flex: 1;
+}
+
+.item-qty {
+  flex: 0 1 50px;
+}
+
+.item-delete {
+  margin-left: 5px;
+}

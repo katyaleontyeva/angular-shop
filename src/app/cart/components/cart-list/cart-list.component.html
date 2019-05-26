@@ -1,0 +1,19 @@
+<h3>Your cart</h3>
+<div *ngIf="(cartItems | async)?.length; else elseBlock">
+  <div class="list-group">
+    <app-cart-item *ngFor="let item of cartItems | async" [cartItem]="item" (deleteItem)="onDeleteItem($event)"></app-cart-item>
+  </div>
+
+  <p>Total: {{ (cartItems | async)?.length }} items</p>
+
+  <div>
+    <button class="btn btn-default btn-sm" (click)="emptyCart()">Empty cart</button>
+    <button class="btn btn-primary btn-sm" (click)="checkout()">Checkout</button>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <p>The cart is empty</p>
+</ng-template>
+
+

@@ -14,5 +14,9 @@
 ## Task 2
 * Созданная ранее функциональность разделена на модули CartModule, ProductsModule, OrdersModule, CoreModule, SharedModule.
 * Модифицирован ProductsService. Для списка товаров используется Promise. 
-* Модицифированы компоненты ProductComponent и ProductListComponent. ProductComponent реализован как презентационный. Добавление товара в корзину осуществляет ProductListComponent через сервис CartService. 
+* Модицифированы компоненты ProductComponent и ProductListComponent. ProductComponent реализован как презентационный.
+* Добавление товара в корзину осуществляет ProductListComponent через сервис CartService. 
 * Для отображения заголовка приложения используется шаблонная переменная.
+* Вместо компонента CartComponent созданы CartListComponent и CartItemComponent. CartItemComponent реализован как презентационный. Также использован декоратор @HostBinding для установки класса.
+* Добавлена кнопка для удаления товара из корзины.
+* При повторном нажатии на кнопку Buy изменяется количество данного товара (новая строка не добавляется).
