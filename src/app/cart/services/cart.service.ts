@@ -45,6 +45,21 @@ export class CartService {
     }
   }
 
+  getTotalQty() {
+    const total = cartItems.reduce((sum, item) => {
+      return sum + item.qty;
+    }, 0);
+
+    console.log(total);
+    return total;
+  }
+
+  getTotalSum() {
+    return cartItems.reduce((sum, item) => {
+      return sum + (item.qty * item.price);
+    }, 0);
+  }
+
   emptyCart() {
     cartItems.splice(0, cartItems.length);
   }

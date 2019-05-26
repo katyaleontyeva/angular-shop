@@ -10,7 +10,7 @@ import { CartItemModel } from '../models/cart-item.model';
 export class CartListComponent implements OnInit {
   cartItems: Promise<Array<CartItemModel>>;
 
-  constructor(private cartService: CartService) { }
+  constructor(public cartService: CartService) { }
 
   ngOnInit() {
     this.cartItems = this.cartService.getCart();
@@ -21,7 +21,7 @@ export class CartListComponent implements OnInit {
   }
 
   emptyCart() {
-    // this.cartItems = this.cartService.emptyCart();
+   this.cartService.emptyCart();
   }
 
   checkout(): void {

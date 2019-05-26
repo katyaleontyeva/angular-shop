@@ -1,3 +1,17 @@
 h3 {
   margin-top: 0;
 }
+
+.cart-totals p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cart-buttons .btn {
+  margin-left: 5px;
+}

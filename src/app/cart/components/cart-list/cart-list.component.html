@@ -4,9 +4,12 @@
     <app-cart-item *ngFor="let item of cartItems | async" [cartItem]="item" (deleteItem)="onDeleteItem($event)"></app-cart-item>
   </div>
 
-  <p>Total: {{ (cartItems | async)?.length }} items</p>
+  <div class="cart-totals">
+    <p><span>Total items:</span> <span>{{ cartService.getTotalQty() }} pcs</span></p>
+    <p><span>Sum:</span> <span>{{ cartService.getTotalSum() }}$</span></p>
+  </div>
 
-  <div>
+  <div class="cart-buttons">
     <button class="btn btn-default btn-sm" (click)="emptyCart()">Empty cart</button>
     <button class="btn btn-primary btn-sm" (click)="checkout()">Checkout</button>
   </div>
