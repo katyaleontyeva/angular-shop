@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, ChangeDetectionStrategy, Output, EventEmitter, HostBinding } from '@angular/core';
-import { CartItemModel } from '../models/cart-item.model';
+import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter, HostBinding } from '@angular/core';
+import { CartItemModel } from '../models';
 
 
 @Component({
@@ -11,6 +11,7 @@ import { CartItemModel } from '../models/cart-item.model';
 export class CartItemComponent {
   @Input() cartItem: CartItemModel;
   @Output() deleteItem = new EventEmitter();
+  @Output() updateItem = new EventEmitter();
 
   @HostBinding('class')
   attrClass = 'list-group-item';
@@ -19,6 +20,14 @@ export class CartItemComponent {
 
   onDelete() {
     this.deleteItem.emit(this.cartItem);
+  }
+
+  onChange() {
+    if ( this.cartItem.qty < 1 ) {
+      this.deleteItem.emit(this.cartItem);
+    } else {
+      this.updateItem.emit(this.cartItem);
+    }
   }
 
 }

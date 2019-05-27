@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { CartItemModel } from '../models/cart-item.model';
+
+import { CartModel, CartItemModel } from '../models';
 
 @Component({
   selector: 'app-cart-list',
@@ -8,16 +9,20 @@ import { CartItemModel } from '../models/cart-item.model';
   styleUrls: ['./cart-list.component.css']
 })
 export class CartListComponent implements OnInit {
-  cartItems: Promise<Array<CartItemModel>>;
+  cart: Promise<CartModel>;
 
   constructor(public cartService: CartService) { }
 
   ngOnInit() {
-    this.cartItems = this.cartService.getCart();
+    this.cart = this.cartService.getCart();
   }
 
   onDeleteItem(cartItem: CartItemModel) {
     this.cartService.removeItem(cartItem);
+  }
+
+  onUpdateItem(cartItem: CartItemModel) {
+    this.cartService.updateItem(cartItem);
   }
 
   emptyCart() {
@@ -25,7 +30,7 @@ export class CartListComponent implements OnInit {
   }
 
   checkout(): void {
-    this.cartItems.then((resolve) => console.log(JSON.stringify(resolve)))
+    this.cart.then((resolve) => console.log(JSON.stringify(resolve)));
   }
 
 }

@@ -1,5 +1,12 @@
 <span class="item-name">{{ cartItem.name }}</span>
-<input type="number" class="form-control input-sm item-qty" disabled value="{{ cartItem.qty }}">
+
+<input
+  type="number"
+  min="1"
+  class="form-control input-sm item-qty"
+  [(ngModel)]="cartItem.qty"
+  (ngModelChange)="onChange()">
+
 <button type="button" class="btn btn-default btn-sm item-delete" aria-label="Remove" (click)="onDelete()">
   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 </button>

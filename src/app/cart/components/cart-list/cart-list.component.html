@@ -1,16 +1,17 @@
 <h3>Your cart</h3>
-<div *ngIf="(cartItems | async)?.length; else elseBlock">
+<div *ngIf="(cart | async)?.items.length; else elseBlock">
   <div class="list-group">
     <app-cart-item
-      *ngFor="let item of cartItems | async"
+      *ngFor="let item of (cart | async)?.items"
       [cartItem]="item"
       (deleteItem)="onDeleteItem($event)"
+      (updateItem)="onUpdateItem($event)"
       appHighlight></app-cart-item>
   </div>
 
   <div class="cart-totals">
-    <p><span>Total items:</span> <span>{{ cartService.getTotalQty() }} pcs</span></p>
-    <p><span>Sum:</span> <span>{{ cartService.getTotalSum() }}$</span></p>
+    <p><span>Total items:</span> <span>{{ (cart | async)?.total }} pcs</span></p>
+    <p><span>Sum:</span> <span>{{ (cart | async)?.sum }}$</span></p>
   </div>
 
   <div class="cart-buttons">

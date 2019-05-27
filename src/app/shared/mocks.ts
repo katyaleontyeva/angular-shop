@@ -31,7 +31,7 @@ export const productsData: ProductModel[] = [
     price: 12.99,
     category: ProductCategory.Foliage,
     images: [
-      'https://img.crocdn.co.uk/images/products2/pl/20/00/02/77/pl2000027700.jpg?width=440&height=440'
+      'https://img.crocdn.co.uk/images/products2/pl/20/00/02/77/pl2000027700.jpg?width=640&height=640'
     ],
     isAvailable: true,
   },
