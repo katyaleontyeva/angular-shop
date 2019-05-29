@@ -10,6 +10,9 @@ export class ProductModel implements IProduct {
     public images?: string[];
     public isAvailable?: boolean;
 
+  // тут получается как-то странно. Вы задаете параметр - объект, который является объектом того, типа, который вы конструируете.
+  // Если он есть, то зачем его создавать.
+  // Тут параметрами должны выступать отдельные свойства.
   constructor(product) {
       this.id = product.id || null;
       this.name = product.name || '';

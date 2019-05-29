@@ -38,15 +38,21 @@ export class CartService {
   }
 
   updateItem(updCartItem: CartItemModel) {
+    // Это происходит, так как используется ngModel директива, которая мутирует данные,
+    // а данные везде передаются по ссылке.
+    // Я немного переделал этот вариант.
+    // Мы с вами будем рассматривать дата дривн формы, которые не мутируют данные.
+
     // TODO Получается, что cartItem обновился сам (из-за NgModel - ?),
     //  но тогда CartItemComponent перестает быть презентационным. Как это исправить?
 
-    // const cartItem = cart.items.find((item) => item.id === updCartItem.id);
-    //
-    // if ( cartItem ) {
-    //   cartItem.qty = updCartItem.qty;
-    //   this.updateTotals();
-    // }
+    const cartItem = cart.items.find((item) => item.id === updCartItem.id);
+
+    if ( cartItem ) {
+      // cartItem.qty = updCartItem.qty;
+      cartItem.qty += 1;
+      this.updateTotals();
+    }
 
     // TODO Также этот метод почему-то вызывается 2 раза
     this.updateTotals();

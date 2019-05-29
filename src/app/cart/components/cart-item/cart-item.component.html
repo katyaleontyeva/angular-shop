@@ -1,11 +1,13 @@
 <span class="item-name">{{ cartItem.name }}</span>
+<!-- Нехватает отображения цены -->
 
 <input
   type="number"
   min="1"
+  #input
   class="form-control input-sm item-qty"
-  [(ngModel)]="cartItem.qty"
-  (ngModelChange)="onChange()">
+  [value]="cartItem.qty"
+  (change)="onChange(input.value)">
 
 <button type="button" class="btn btn-default btn-sm item-delete" aria-label="Remove" (click)="onDelete()">
   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
