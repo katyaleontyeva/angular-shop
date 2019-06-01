@@ -1,16 +1,30 @@
 :host.list-group-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
 }
 
-.item-name {
-  flex: 1;
+.item-qty-group {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .item-qty {
-  flex: 0 1 50px;
+  display: inline-block;
+  width: 30px;
+  text-align: center;
 }
 
 .item-delete {
-  margin-left: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.item-delete:hover {
+  color: red;
 }

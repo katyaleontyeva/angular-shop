@@ -1,14 +1,18 @@
-<span class="item-name">{{ cartItem.name }}</span>
-<!-- Нехватает отображения цены -->
+<div>
+  <div>{{ cartItem.name }}</div>
+  <div class="text-muted">{{ cartItem.price }}$</div>
+</div>
 
-<input
-  type="number"
-  min="1"
-  #input
-  class="form-control input-sm item-qty"
-  [value]="cartItem.qty"
-  (change)="onChange(input.value)">
+<div class="item-qty-group">
+  <button type="button" class="btn btn-default btn-xs" (click)="onDecrease()" [disabled]="cartItem.qty === 1">
+    <span class="glyphicon glyphicon-minus"></span>
+  </button>
 
-<button type="button" class="btn btn-default btn-sm item-delete" aria-label="Remove" (click)="onDelete()">
-  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-</button>
+  <span class="item-qty">{{ cartItem.qty }}</span>
+
+  <button type="button" class="btn btn-default btn-xs" (click)="onIncrease()" [disabled]="cartItem.qty === 10">
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</div>
+
+<div (click)="onDelete()" class="item-delete">&#215;</div>

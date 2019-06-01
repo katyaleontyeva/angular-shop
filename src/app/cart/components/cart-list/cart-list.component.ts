@@ -11,7 +11,6 @@ import { CartModel, CartItemModel } from '../models';
 export class CartListComponent implements OnInit {
   cart: Promise<CartModel>;
 
-  // нет необходимости в публичном сервисе, он не используется в шаблоне
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
@@ -22,8 +21,12 @@ export class CartListComponent implements OnInit {
     this.cartService.removeItem(cartItem);
   }
 
-  onUpdateItem(cartItem: CartItemModel) {
-    this.cartService.updateItem(cartItem);
+  onIncrementItem(cartItem: CartItemModel) {
+    this.cartService.incrementItem(cartItem);
+  }
+
+  onDecrementItem(cartItem: CartItemModel) {
+    this.cartService.decrementItem(cartItem);
   }
 
   emptyCart() {

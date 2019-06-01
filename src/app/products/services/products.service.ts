@@ -3,7 +3,8 @@ import { ProductModel } from '../models/product.model';
 
 import { productsData } from '../../shared/mocks';
 
-const productsList = productsData.map(item => new ProductModel(item));
+const productsList = productsData.map(item => new ProductModel(item.id, item.name, item.description, item.price, item.category, item.images, item.isAvailable));
+
 const productsListPromise = Promise.resolve(productsList);
 
 @Injectable()

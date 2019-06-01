@@ -58,7 +58,7 @@ export const productsData: ProductModel[] = [
     isAvailable: true,
   },
   {
-    id: 5,
+    id: 6,
     name: 'Aloe aristata',
     description: '13cm pot - 22cm tall',
     price: 14.99,
@@ -69,7 +69,7 @@ export const productsData: ProductModel[] = [
     isAvailable: true,
   },
   {
-    id: 6,
+    id: 7,
     name: 'Aloe and Haworthia collection',
     description: '6 × 6cm pots',
     price: 19.99,
