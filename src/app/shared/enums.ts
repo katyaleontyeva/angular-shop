@@ -1,5 +1,5 @@
 export enum ProductCategory {
-  Foliage = 'Foliage',
-  Flowering = 'Flowering',
-  Succulent = 'Succulent'
+  Foliage = 'foliage',
+  Flowering = 'flowering',
+  Succulent = 'succulent'
 }

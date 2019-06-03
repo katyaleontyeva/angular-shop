@@ -1,4 +1,11 @@
-.row {
+.product-list {
   display: flex;
   flex-wrap: wrap;
+}
+
+.product-list-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }

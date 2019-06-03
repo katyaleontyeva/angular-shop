@@ -4,10 +4,10 @@
   </div>
   <div class="caption">
     <h4>{{ product.name }}</h4>
-    <p>{{ product.category }}</p>
+    <p>{{ product.category | titlecase }}</p>
     <p>{{ product.description }}</p>
     <p class="thumbnail-footer">
-      <span class="price">{{ product.price }}$</span>
+      <span class="price">{{ product.price | currency:'USD' }}</span>
       <button class="btn btn-primary" (click)="onBuy()" [disabled]="!product.isAvailable">Buy</button>
     </p>
   </div>

@@ -1,5 +1,24 @@
-<div class="row">
-  <div class="col-sm-6 col-md-4" *ngFor="let product of products | async">
+<div class="product-list-controls">
+    <div class="btn-group categories" role="group">
+      <button type="button" class="btn btn-default active">All</button>
+      <button type="button" class="btn btn-default">Foliage</button>
+      <button type="button" class="btn btn-default">Flowering</button>
+      <button type="button" class="btn btn-default">Succulent</button>
+    </div>
+
+    <div>
+    Sort by:&nbsp;
+    <select #select (change)="onChange()">
+      <option selected value="name asc">Name A to Z</option>
+      <option value="name desc">Name Z to A</option>
+      <option value="price desc">Price &#8600;</option>
+      <option value="price asc">Price &#8599;</option>
+    </select>
+    </div>
+</div>
+
+<div class="row product-list">
+  <div class="col-sm-6 col-md-4" *ngFor="let product of products | async | orderBy:sort.key:sort.isDesc">
     <app-product [product] = "product" (buyProduct)="onBuyProduct($event)"></app-product>
   </div>
 </div>
