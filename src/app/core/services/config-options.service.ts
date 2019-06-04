@@ -11,11 +11,13 @@ export class ConfigOptionsService {
 
   constructor() { }
 
-  setConfig(settings: object) {
-    for (const key in settings) {
-      this.config[key] = settings[key];
-    }
-    this.config.lastUpdate = new Date();
+  // Можно так попробовать
+  setConfig(settings: Partial<ConfigModel>) {
+    this.config = {...this.config, ...settings, lastUpdate: new Date()};
+    // for (const key in settings) {
+    //   this.config[key] = settings[key];
+    // }
+    // this.config.lastUpdate = new Date();
   }
 
   getConfig() {
