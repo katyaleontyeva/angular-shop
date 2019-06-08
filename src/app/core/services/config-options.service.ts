@@ -11,7 +11,6 @@ export class ConfigOptionsService {
 
   constructor() { }
 
-  // Можно так попробовать
   setConfig(settings: Partial<ConfigModel>) {
     this.config = {...this.config, ...settings, lastUpdate: new Date()};
     // for (const key in settings) {

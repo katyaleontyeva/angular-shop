@@ -6,19 +6,21 @@
       <button type="button" class="btn btn-default">Succulent</button>
     </div>
 
-    <div>
-    Sort by:&nbsp;
-    <select #select (change)="onChange()">
-      <option selected value="name asc">Name A to Z</option>
-      <option value="name desc">Name Z to A</option>
-      <option value="price desc">Price &#8600;</option>
-      <option value="price asc">Price &#8599;</option>
-    </select>
+    <div class="product-list-sort">
+      Sort by:
+      <select [(ngModel)]="sortKey" (ngModelChange)="onChange($event, 'sortKey')">
+        <option [ngValue]="'name'">Name</option>
+        <option [ngValue]="'price'">Price</option>
+      </select>
+      <select [(ngModel)]="sortDir" (ngModelChange)="onChange($event, 'sortDir')">
+        <option [ngValue]="false">asc</option>
+        <option [ngValue]="true">desc</option>
+      </select>
     </div>
 </div>
 
 <div class="row product-list">
-  <div class="col-sm-6 col-md-4" *ngFor="let product of products | async | orderBy:sort.key:sort.isDesc">
+  <div class="col-sm-6 col-md-4" *ngFor="let product of products | async | orderBy:sortKey:sortDir">
     <app-product [product] = "product" (buyProduct)="onBuyProduct($event)"></app-product>
   </div>
 </div>

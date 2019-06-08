@@ -9,3 +9,11 @@
   align-items: center;
   margin-bottom: 10px;
 }
+
+.product-list-sort {
+  display: flex;
+}
+
+.product-list-sort select {
+  margin-left: 5px;
+}

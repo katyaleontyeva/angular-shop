@@ -15,11 +15,16 @@ export class CartService {
   }
 
   addItem(product: ProductModel) {
-    const cartItem = cart.items.find((item) => item.id === product.id);
+    const i = cart.items.findIndex(item => item.id === product.id);
 
-    if ( cartItem ) {
-      this.incrementItem(cartItem);
+    if (i > -1) {
+      // If product is already in the cart, replace it with new item (same id and name, new quantity)
+      // Use splice instead of push because we need the item to stay on the same position in cart
+      const qty = cart.items[i].qty + 1;
+      const newItem = new CartItemModel({id: product.id, name: product.name, price: product.price, qty});
+      cart.items.splice(i, 1, newItem);
     } else {
+      // If product is not in the cart, create new item and add to the end
       const newItem = new CartItemModel({id: product.id, name: product.name, price: product.price, qty: 1});
       cart.items.push(newItem);
     }
@@ -38,7 +43,6 @@ export class CartService {
   }
 
   incrementItem(updCartItem: CartItemModel) {
-    // В методе откуда вызывается этот метод уже происходил поиск, а тут он снова происходит.
     const cartItem = cart.items.find((item) => item.id === updCartItem.id);
 
     cartItem.qty += 1;

@@ -10,30 +10,22 @@ import { CartService } from '../../../cart/services/cart.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  //  Можно так, а можно задействовать ngModel
-  @ViewChild('select')
-  select: ElementRef<HTMLSelectElement>;
+  sortKey = 'name';
+  sortDir = false;
   products: Promise<Array<ProductModel>>;
-  sort = {
-    key: null,
-    isDesc: false
-  };
 
   constructor(private productsService: ProductsService, private cartService: CartService) { }
 
   ngOnInit() {
     this.products = this.productsService.getProducts();
-    this.onChange(); // To set initial sorting
   }
 
   onBuyProduct(product: ProductModel) {
     this.cartService.addItem(product);
   }
 
-  onChange() {
-    const selected = this.select.nativeElement.value.split(' ');
-    this.sort.key = selected[0];
-    this.sort.isDesc = (selected[1] === 'desc');
+  onChange(newVal: string | boolean, key: string) {
+    this[key] = newVal;
   }
 
 }
