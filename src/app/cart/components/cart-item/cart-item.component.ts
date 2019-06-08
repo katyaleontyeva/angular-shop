@@ -14,6 +14,8 @@ import { CartItemModel } from '../models';
   styleUrls: ['./cart-item.component.css'],
   // TODO При стратегии OnPush есть баг: если в product-list второй раз нажать на кнопку Buy,
   //  то данный cart-item не обновляется (т.к. не меняется ссылка, только свойство qty)
+
+  // Либо выключить, лио сделать так, чтобы данные не мутировались
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartItemComponent {

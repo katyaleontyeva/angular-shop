@@ -7,7 +7,9 @@ export class OrderByPipe implements PipeTransform {
 
   transform(array: Array<any>, key: string, isDesc: boolean = true): any {
     if (!array) {
-      return;
+      // Если не можем преобразовать, то вернуть то, что пришло
+      // return;
+      return array;
     }
 
     if (!key) {
@@ -38,6 +40,7 @@ export class OrderByPipe implements PipeTransform {
       return 0;
     };
 
+    // Хоть и тип параметра Array, а если пришел не массив, то код упадет. Как вариант еще проверить на Array.isArray();
     return array.sort(isDesc ? descending : ascending);
   }
 

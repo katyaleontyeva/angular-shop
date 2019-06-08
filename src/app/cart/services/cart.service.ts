@@ -38,6 +38,7 @@ export class CartService {
   }
 
   incrementItem(updCartItem: CartItemModel) {
+    // В методе откуда вызывается этот метод уже происходил поиск, а тут он снова происходит.
     const cartItem = cart.items.find((item) => item.id === updCartItem.id);
 
     cartItem.qty += 1;

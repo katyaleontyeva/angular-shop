@@ -10,6 +10,7 @@ import { CartService } from '../../../cart/services/cart.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  //  Можно так, а можно задействовать ngModel
   @ViewChild('select')
   select: ElementRef<HTMLSelectElement>;
   products: Promise<Array<ProductModel>>;
