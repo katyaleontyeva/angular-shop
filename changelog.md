@@ -73,7 +73,7 @@
 ## Task 5
 5.1. Добавлен app-routing -- переход на страницы home (product-list), cart, admin, login.
 
-5.2.
+5.2. Добавлена карточка товара (product-details), реализована навигация по ссылке /product/:productID
 
 5.3.
 

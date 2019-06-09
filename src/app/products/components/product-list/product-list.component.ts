@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { ProductModel } from '../../models/product.model';
+import { Router } from '@angular/router';
 
+import { ProductModel } from '../../models/product.model';
 import { ProductsService } from '../../services/products.service';
 import { CartService } from '../../../cart/services/cart.service';
 
@@ -14,7 +15,11 @@ export class ProductListComponent implements OnInit {
   sortDir = false;
   products: Promise<Array<ProductModel>>;
 
-  constructor(private productsService: ProductsService, private cartService: CartService) { }
+  constructor(
+    private router: Router,
+    private productsService: ProductsService,
+    private cartService: CartService
+  ) { }
 
   ngOnInit() {
     this.products = this.productsService.getProducts();
@@ -26,6 +31,11 @@ export class ProductListComponent implements OnInit {
 
   onChange(newVal: string | boolean, key: string) {
     this[key] = newVal;
+  }
+
+  onClickProduct(product: ProductModel): void {
+    const link = ['/product', product.id];
+    this.router.navigate(link);
   }
 
 }

@@ -1,0 +1,19 @@
+<div *ngIf="product">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{ product.images[0] }}" class="img-responsive" alt="{{ product.name }}" >
+    </div>
+    <div class="col-md-8">
+      <h3>{{ product.name }}</h3>
+      <p>Category: {{ product.category | titlecase }}</p>
+      <p>Description: {{ product.description }}</p>
+      <div [innerHtml]="product.details"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onDisplayReviews()">Show reviews</button>
+      <router-outlet name="reviews"></router-outlet>
+    </div>
+  </div>
+</div>

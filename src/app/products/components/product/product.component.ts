@@ -14,7 +14,8 @@ export class ProductComponent {
 
   constructor() { }
 
-  onBuy(): void {
+  onBuy(event): void {
+    event.stopPropagation();
     this.buyProduct.emit(this.product);
   }
 

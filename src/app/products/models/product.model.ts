@@ -6,6 +6,7 @@ export class ProductModel implements IProduct {
     public id: number = null,
     public name: string = '',
     public description: string = '',
+    public details: string = '',
     public price: number = null,
     public category: ProductCategory = null,
     public images?: string[],
