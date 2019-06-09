@@ -8,6 +8,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 export class AppComponent implements AfterViewInit {
   @ViewChild('appTitle')
   title: ElementRef<HTMLInputElement>;
+  cartTotal = 0;
 
   ngAfterViewInit() {
     this.title.nativeElement.innerHTML = 'Plants Shop';

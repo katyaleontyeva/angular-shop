@@ -10,9 +10,12 @@ import { OrdersModule } from './orders/orders.module';
 import { ProductsModule } from './products/products.module';
 import { LayoutModule } from './layout/layout.module';
 
+import { Router } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,9 +25,15 @@ import { LayoutModule } from './layout/layout.module';
     CartModule,
     OrdersModule,
     ProductsModule,
-    LayoutModule
+    LayoutModule,
+    // MUST BE LAST
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(router: Router) {
+
+  }
+}

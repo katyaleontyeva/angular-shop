@@ -9,3 +9,7 @@
   margin-bottom: 0;
   line-height: 40px;
 }
+
+.header h3:focus {
+  outline: none;
+}

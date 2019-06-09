@@ -1,23 +1,31 @@
 <div class="container">
   <div class="header clearfix">
+    <h3 #appTitle class="text-muted pull-left" routerLink="/home"></h3>
     <nav>
       <ul class="nav nav-pills pull-right">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">About</a></li>
-        <li role="presentation"><a href="#">Contact</a></li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/cart">Cart <span class="badge">{{ cartTotal }}</span></a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/admin">Admin</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/login">Login</a>
+        </li>
       </ul>
     </nav>
-    <h3 #appTitle class="text-muted"></h3>
   </div>
 
   <div class="row">
     <div class="col-md-8">
-      <app-product-list></app-product-list>
+      <router-outlet></router-outlet>
+      <!-- Routed views go here -->
     </div>
     <div class="col-md-4">
-      <app-cart-list></app-cart-list>
     </div>
   </div>
+
+  <router-outlet name="messages"></router-outlet>
 </div>
 
 <app-about></app-about>

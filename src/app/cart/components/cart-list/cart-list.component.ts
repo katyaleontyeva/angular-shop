@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 
 import { CartModel, CartItemModel } from '../models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-list',
@@ -11,7 +12,10 @@ import { CartModel, CartItemModel } from '../models';
 export class CartListComponent implements OnInit {
   cart: Promise<CartModel>;
 
-  constructor(private cartService: CartService) { }
+  constructor(
+    private cartService: CartService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.cart = this.cartService.getCart();
@@ -35,6 +39,7 @@ export class CartListComponent implements OnInit {
 
   checkout(): void {
     this.cart.then((resolve) => console.log(JSON.stringify(resolve)));
+    this.router.navigate(['/order']);
   }
 
 }
