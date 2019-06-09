@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ProductListComponent, ProductComponent } from './components';
+import { ProductListComponent, ProductDetailsComponent, ProductReviewsComponent } from './components';
 
 const routes: Routes = [
   {
@@ -13,8 +13,13 @@ const routes: Routes = [
   },
   {
     path: 'product/:productID',
-    component: ProductComponent
-  }
+    component: ProductDetailsComponent
+  },
+  {
+    path: 'reviews',
+    component: ProductReviewsComponent,
+    outlet: 'reviews'
+  },
 ];
 
 @NgModule({
