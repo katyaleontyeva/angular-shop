@@ -4,13 +4,20 @@
     <nav>
       <ul class="nav nav-pills pull-right">
         <li role="presentation" routerLinkActive="active">
-          <a routerLink="/cart">Cart <span class="badge">{{ cartTotal }}</span></a>
+          <a routerLink="/cart">
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+            Cart <span class="badge">{{ (cart | async)?.total }}</span>
+          </a>
         </li>
         <li role="presentation" routerLinkActive="active">
-          <a routerLink="/admin">Admin</a>
+          <a routerLink="/login">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            Login</a>
         </li>
         <li role="presentation" routerLinkActive="active">
-          <a routerLink="/login">Login</a>
+          <a routerLink="/admin">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            Admin</a>
         </li>
       </ul>
     </nav>
