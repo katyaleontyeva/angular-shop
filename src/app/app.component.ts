@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 
 import { CartModel } from './cart/components/models';
 import { CartService } from './cart/services/cart.service';
+import { AuthService } from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   title: ElementRef<HTMLInputElement>;
   cart: Promise<CartModel>;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    public authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.cart = this.cartService.getCart();

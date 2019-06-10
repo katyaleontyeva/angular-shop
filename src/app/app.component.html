@@ -14,7 +14,7 @@
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             Login</a>
         </li>
-        <li role="presentation" routerLinkActive="active">
+        <li role="presentation" routerLinkActive="active" *ngIf="authService.isLoggedIn">
           <a routerLink="/admin">
             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
             Admin</a>

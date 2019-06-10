@@ -5,7 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { ProductsComponent } from './components';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { AdminServicesModule } from "./admin-services.module";
+import { AdminServicesModule } from './admin-services.module';
 
 @NgModule({
   declarations: [

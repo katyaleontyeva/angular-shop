@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ProductListComponent } from './products/components';
 import { CartListComponent } from './cart/components';
-import { OrderComponent } from './orders/order/order.component';
+import { OrderComponent } from './orders/order/order.component'
+import { LoginComponent } from './layout/login/login.component';
+
 import { PathNotFoundComponent } from './layout/path-not-found/path-not-found.component';
 
 const routes: Routes = [
@@ -23,6 +25,10 @@ const routes: Routes = [
   {
     path: 'order',
     component: OrderComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: 'admin',
