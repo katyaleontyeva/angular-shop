@@ -2,11 +2,31 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
+import { DashboardComponent, ProductsComponent, ProductFormComponent } from './components';
+import { ProductResolveGuard } from './guards/product-resolve.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
+    // canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        // canActivateChild: [AuthGuard],
+        children: [
+          { path: 'products', component: ProductsComponent },
+          { path: 'product/add', component: ProductFormComponent },
+          { path: 'product/edit/:productID',
+            component: ProductFormComponent,
+            resolve: {
+              product: ProductResolveGuard
+            }
+          },
+          { path: '', component: DashboardComponent }
+        ]
+      }
+    ]
   }
 ];
 

@@ -15,6 +15,7 @@ export class ProductReviewsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    console.log('product review init');
   }
 
   ngOnDestroy() {

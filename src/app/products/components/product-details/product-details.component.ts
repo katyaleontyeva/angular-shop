@@ -34,8 +34,13 @@ export class ProductDetailsComponent implements OnInit {
       );
   }
 
+  // TODO Что-то не работает
   onDisplayReviews(): void {
-    this.router.navigate([{ outlets: { reviews: ['reviews'] } }]);
+    this.router.navigate([{ outlets: { reviews: ['reviews'] } }], { relativeTo: this.route });
+  }
+
+  onGoBack(): void {
+    this.router.navigate(['/home']);
   }
 
 }

@@ -8,8 +8,10 @@
       <p>Category: {{ product.category | titlecase }}</p>
       <p>Description: {{ product.description }}</p>
       <div [innerHtml]="product.details"></div>
+      <button type="button" class="btn btn-default" (click)="onGoBack()">Back</button>
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-xs-12">
       <button class="btn btn-primary" (click)="onDisplayReviews()">Show reviews</button>
