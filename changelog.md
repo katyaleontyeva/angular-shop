@@ -99,6 +99,6 @@ ToDo Отображение отзывов о товаре в отдельном
 
 6.3. В ProductsService метод getProducts реализован как Observable, метод getProduct реализован как Promise.
 
-6.4.
+6.4. Реализован TimingInterceptor, который выводит в консоль запросов, содержащих в url строку products.
 
 6.5.
