@@ -95,4 +95,10 @@ ToDo Отображение отзывов о товаре в отдельном
 ## Task 6
 6.1. Реализован бекэнд используя json-server.
 
-6.2.
+6.2. Изменен сервис ProductsService для работы с HttpClient.
+
+6.3. В ProductsService метод getProducts реализован как Observable, метод getProduct реализован как Promise.
+
+6.4.
+
+6.5.

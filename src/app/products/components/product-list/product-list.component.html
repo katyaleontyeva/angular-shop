@@ -20,7 +20,7 @@
 </div>
 
 <div class="row product-list">
-  <div class="col-sm-6 col-md-3" *ngFor="let product of products | async | orderBy:sortKey:sortDir">
+  <div class="col-sm-6 col-md-3" *ngFor="let product of products$ | async | orderBy:sortKey:sortDir">
     <app-product [product] = "product" (buyProduct)="onBuyProduct($event)" (click)="onClickProduct(product)"></app-product>
   </div>
 </div>

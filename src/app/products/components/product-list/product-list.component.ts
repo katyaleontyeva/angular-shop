@@ -1,5 +1,6 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { ProductModel } from '../../models/product.model';
 import { ProductsService } from '../../services/products.service';
@@ -13,7 +14,7 @@ import { CartService } from '../../../cart/services/cart.service';
 export class ProductListComponent implements OnInit {
   sortKey = 'name';
   sortDir = false;
-  products: Promise<Array<ProductModel>>;
+  products$: Observable<ProductModel[]>;
 
   constructor(
     private router: Router,
@@ -22,7 +23,7 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.products = this.productsService.getProducts();
+    this.products$ = this.productsService.getProducts();
   }
 
   onBuyProduct(product: ProductModel) {
