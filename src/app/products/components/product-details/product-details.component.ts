@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import {switchMap} from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 import { ProductModel } from '../../models/product.model';
 import { ProductsService } from '../../services/products.service';
-
 
 @Component({
   selector: 'app-product-details',
@@ -15,32 +14,48 @@ import { ProductsService } from '../../services/products.service';
 export class ProductDetailsComponent implements OnInit {
   product: ProductModel;
 
+  buttonCaption = 'Show reviews';
+
+  private isVisibleReview = false;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private productsService: ProductsService,
-  ) { }
+    private productsService: ProductsService
+  ) {}
 
   ngOnInit() {
     this.route.paramMap
       .pipe(
         switchMap((params: Params) => {
-          return params.get('productID') ? this.productsService.getProduct(+params.get('productID')) : Promise.resolve(null);
+          return params.get('productID')
+            ? this.productsService.getProduct(+params.get('productID'))
+            : Promise.resolve(null);
         })
       )
       .subscribe(
-        product => this.product = {...product},
+        product => (this.product = { ...product }),
         err => console.log(err)
       );
   }
 
-  // TODO Что-то не работает
   onDisplayReviews(): void {
-    this.router.navigate([{ outlets: { reviews: ['reviews'] } }], { relativeTo: this.route });
+    this.isVisibleReview = !this.isVisibleReview;
+
+    if (this.isVisibleReview) {
+      this.buttonCaption = 'Hide Reviews';
+      this.router.navigate([{ outlets: { reviews: ['reviews'] } }], {
+        relativeTo: this.route
+      });
+    } else {
+      this.buttonCaption = 'Show Reviews';
+      this.router.navigate([{ outlets: { reviews: null } }], {
+        relativeTo: this.route
+      });
+    }
   }
 
   onGoBack(): void {
     this.router.navigate(['/home']);
   }
-
 }

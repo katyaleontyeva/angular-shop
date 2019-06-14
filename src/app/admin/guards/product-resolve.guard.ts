@@ -15,7 +15,7 @@ import { ProductsService } from '../../products/services/products.service';
 export class ProductResolveGuard implements Resolve<ProductModel> {
   constructor(
     private productsService: ProductsService,
-    private router: Router,
+    private router: Router
   ) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<ProductModel | null> {
@@ -25,18 +25,18 @@ export class ProductResolveGuard implements Resolve<ProductModel> {
 
     const id = +route.paramMap.get('productID');
 
-    return from(this.productsService.getProduct(id))
-      .pipe(
-        map((product: ProductModel) => {
-          if (product) {
-            console.log(`Edit product: ${product.id} ${product.name}`);
-            return product;
-          } else {
-            console.log(`No product found. Redirect to products`);
-            this.router.navigate(['admin/products']);
-            return null;
-          }
-        })
-      );
+    return from(this.productsService.getProduct(id)).pipe(
+      map((product: ProductModel) => {
+        if (product) {
+          console.log(`Edit product: ${product.id} ${product.name}`);
+          return product;
+        } else {
+          console.log(`No product found. Redirect to products`);
+          this.router.navigate(['admin/products']);
+          return null;
+        }
+      }),
+      take(1) // надо закрыть поток
+    );
   }
 }

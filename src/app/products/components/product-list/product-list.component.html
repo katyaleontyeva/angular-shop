@@ -8,11 +8,11 @@
 
     <div class="product-list-sort">
       Sort by:
-      <select [(ngModel)]="sortKey" (ngModelChange)="onChange($event, 'sortKey')">
+      <select [(ngModel)]="sortKey">
         <option [ngValue]="'name'">Name</option>
         <option [ngValue]="'price'">Price</option>
       </select>
-      <select [(ngModel)]="sortDir" (ngModelChange)="onChange($event, 'sortDir')">
+      <select [(ngModel)]="sortDir">
         <option [ngValue]="false">asc</option>
         <option [ngValue]="true">desc</option>
       </select>
