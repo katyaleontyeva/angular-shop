@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -7,21 +7,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './product-reviews.component.html',
   styleUrls: ['./product-reviews.component.css']
 })
-export class ProductReviewsComponent implements OnInit, OnDestroy {
+export class ProductReviewsComponent implements OnInit {
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-  ) { }
+  constructor() { }
 
   ngOnInit() {
     console.log('product review init');
-  }
-
-  ngOnDestroy() {
-    // Эту строку надо как-то дать пользователю выполнить, чтобы закрыть ревью
-    // Вариант предложил в ProductDetailsComponent
-    this.router.navigate([{ outlets: { reviews: null } }]);
   }
 
 }

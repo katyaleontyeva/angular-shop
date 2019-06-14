@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'product/:productID',
     component: ProductDetailsComponent,
-    // Надо переместить сюда. router-outlet ведь является дочерним для ProductDetailsComponent, он находится в его шаблоне
+    // router-outlet is inside ProductDetailsComponent template => should be in children
     children: [
       {
         path: 'reviews',

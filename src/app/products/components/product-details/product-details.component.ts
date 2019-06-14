@@ -14,10 +14,8 @@ import { ProductsService } from '../../services/products.service';
 export class ProductDetailsComponent implements OnInit {
   product: ProductModel;
 
-  // название кнопки
   buttonCaption = 'Show reviews';
 
-  // состояние компонента с ревью
   private isVisibleReview = false;
 
   constructor(
@@ -41,10 +39,9 @@ export class ProductDetailsComponent implements OnInit {
       );
   }
 
-  // TODO Что-то не работает
   onDisplayReviews(): void {
-    // Как-то так, но можно лучше
     this.isVisibleReview = !this.isVisibleReview;
+
     if (this.isVisibleReview) {
       this.buttonCaption = 'Hide Reviews';
       this.router.navigate([{ outlets: { reviews: ['reviews'] } }], {

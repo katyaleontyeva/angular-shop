@@ -29,11 +29,6 @@ export class ProductListComponent implements OnInit {
     this.cartService.addItem(product);
   }
 
-  // Этот метод не нужен, все происходит автоматически
-  onChange(newVal: string | boolean, key: string) {
-    this[key] = newVal;
-  }
-
   onClickProduct(product: ProductModel): void {
     const link = ['/product', product.id];
     this.router.navigate(link);
