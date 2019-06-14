@@ -19,6 +19,8 @@ export class ProductReviewsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    // Эту строку надо как-то дать пользователю выполнить, чтобы закрыть ревью
+    // Вариант предложил в ProductDetailsComponent
     this.router.navigate([{ outlets: { reviews: null } }]);
   }
 
